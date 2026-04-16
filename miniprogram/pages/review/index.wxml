@@ -1,0 +1,99 @@
+<view class="container review-page" wx:if="{{!loading && !loadError}}">
+  <view class="review-top card" wx:if="{{total > 0}}">
+    <view class="progress-header">
+      <view>
+        <view class="progress-title">{{modeMeta.title}}</view>
+        <view class="progress-subtitle">{{progressText}}</view>
+      </view>
+      <view class="tag {{mode === 'daily' ? 'tag-green' : 'tag-blue'}}">{{modeMeta.badge}}</view>
+    </view>
+    <view class="progress-track">
+      <view class="progress-bar" style="width: {{progressPercent}}%;"></view>
+    </view>
+  </view>
+
+  <view class="empty-state card" wx:if="{{total === 0}}">
+    <view class="empty-emoji">📭</view>
+    <view class="empty-title">还没有可复习的单词</view>
+    <view class="empty-text">请先为当前用户导入单词库，然后再开始今日训练。</view>
+    <button class="primary-button" bindtap="goHome">返回首页</button>
+  </view>
+
+  <block wx:if="{{total > 0}}">
+    <view class="question-card card">
+      <view class="word-chip" bindtap="playPronunciation">🔊 点击重听</view>
+      <view class="question-word" bindtap="playPronunciation">{{currentQuestion.word}}</view>
+      <view class="question-hint">请选择最匹配的中文释义</view>
+
+      <view class="hint-trigger-row">
+        <button class="hint-button" bindtap="toggleHint">{{hintButtonText}}</button>
+      </view>
+
+      <view class="hint-panel" wx:if="{{hintVisible}}">
+        <view class="hint-label">场景提示</view>
+        <view class="hint-content">{{currentQuestion.hint.daily_sentence}}</view>
+        <view class="hint-divider" wx:if="{{submitted && currentQuestion.hint.daily_sentence_translation && currentQuestion.hint.daily_sentence_translation !== 'null'}}"></view>
+        <view
+          class="hint-label translation-label"
+          wx:if="{{submitted && currentQuestion.hint.daily_sentence_translation && currentQuestion.hint.daily_sentence_translation !== 'null'}}"
+        >
+          句中文
+        </view>
+        <view
+          class="hint-content translation-text"
+          wx:if="{{submitted && currentQuestion.hint.daily_sentence_translation && currentQuestion.hint.daily_sentence_translation !== 'null'}}"
+        >
+          {{currentQuestion.hint.daily_sentence_translation}}
+        </view>
+        <view class="hint-divider" wx:if="{{showMemoryMethod}}"></view>
+        <view class="hint-label memory-label" wx:if="{{showMemoryMethod}}">记忆方法</view>
+        <view class="hint-content memory-text" wx:if="{{showMemoryMethod}}">{{currentQuestion.hint.memory_method}}</view>
+      </view>
+    </view>
+
+    <view class="options-group">
+      <view
+        wx:for="{{currentQuestion.options}}"
+        wx:key="word_id"
+        class="option-card {{selectedOptionId === item.word_id ? 'option-selected' : ''}} {{submitted && item.is_correct ? 'option-correct' : ''}} {{submitted && selectedOptionId === item.word_id && !item.is_correct ? 'option-wrong' : ''}}"
+        data-option-id="{{item.word_id}}"
+        bindtap="selectOption"
+      >
+        <view class="option-main">{{item.label}}</view>
+        <view class="option-sub" wx:if="{{submitted}}">{{item.english_word}}</view>
+      </view>
+    </view>
+
+    <view class="submit-wrap">
+      <button class="{{submitButtonClass}}" bindtap="handleSubmitOrContinue" disabled="{{submitDisabled}}">
+        {{submitButtonText}}
+      </button>
+    </view>
+  </block>
+
+  <view class="modal-mask" wx:if="{{showCompleteModal}}">
+    <view class="modal-card">
+      <view class="modal-emoji">🎉</view>
+      <view class="modal-title">完成今日任务！</view>
+      <view class="modal-text">你已经完成 {{modeMeta.title}} 的全部复习，继续保持这种节奏吧。</view>
+      <button class="primary-button" bindtap="goHome">返回首页</button>
+    </view>
+  </view>
+</view>
+
+<view class="container state-page" wx:elif="{{loading}}">
+  <view class="state-card card">
+    <view class="state-emoji">🧠</view>
+    <view class="state-title">正在准备题目...</view>
+    <view class="state-text">马上就好，系统正在为你打乱并生成高质量选项。</view>
+  </view>
+</view>
+
+<view class="container state-page" wx:else>
+  <view class="state-card card">
+    <view class="state-emoji">⚠️</view>
+    <view class="state-title">题目加载失败</view>
+    <view class="state-text">{{loadError}}</view>
+    <button class="secondary-button" bindtap="fetchQuestions">重新加载</button>
+  </view>
+</view>
