@@ -1,0 +1,233 @@
+.review-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  padding-bottom: 80rpx;
+}
+
+.review-top {
+  padding: 30rpx 28rpx;
+}
+
+.progress-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.progress-title {
+  font-size: 34rpx;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.progress-subtitle {
+  margin-top: 8rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.progress-track {
+  margin-top: 24rpx;
+  width: 100%;
+  height: 20rpx;
+  border-radius: 999rpx;
+  background: #e1efd8;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 999rpx;
+  background: linear-gradient(90deg, #79e435 0%, var(--brand-green) 100%);
+  transition: width 0.28s ease;
+}
+
+.question-card {
+  padding: 38rpx 30rpx 34rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.word-chip {
+  padding: 14rpx 20rpx;
+  border-radius: 999rpx;
+  font-size: 24rpx;
+  color: var(--brand-blue-dark);
+  background: rgba(28, 140, 255, 0.12);
+}
+
+.question-word {
+  margin-top: 32rpx;
+  font-size: 68rpx;
+  line-height: 1.18;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.question-hint {
+  margin-top: 16rpx;
+  font-size: 27rpx;
+  color: var(--text-secondary);
+}
+
+.hint-trigger-row {
+  width: 100%;
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.hint-button {
+  min-width: 220rpx;
+  padding: 22rpx 30rpx;
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--brand-blue-dark);
+  border-radius: 999rpx;
+  background: rgba(28, 140, 255, 0.1);
+}
+
+.hint-panel {
+  margin-top: 24rpx;
+  width: 100%;
+  text-align: left;
+  background: linear-gradient(180deg, #fbfff8 0%, #f2faeb 100%);
+  border: 2rpx solid #dcefd0;
+  border-radius: 28rpx;
+  padding: 24rpx;
+}
+
+.hint-label {
+  font-size: 22rpx;
+  font-weight: 800;
+  color: var(--brand-green-dark);
+  letter-spacing: 2rpx;
+}
+
+.hint-content {
+  margin-top: 14rpx;
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.hint-divider {
+  margin: 22rpx 0 18rpx;
+  height: 2rpx;
+  background: #dcefd0;
+}
+
+.memory-label {
+  color: var(--brand-blue-dark);
+}
+
+.translation-label {
+  color: #9f6500;
+}
+
+.translation-text {
+  color: #6f4e10;
+}
+
+.memory-text {
+  color: #24445f;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.option-card {
+  background: #ffffff;
+  border-radius: 28rpx;
+  border: 4rpx solid transparent;
+  box-shadow: 0 16rpx 32rpx rgba(41, 79, 16, 0.08);
+  padding: 28rpx 26rpx;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.option-selected {
+  border-color: var(--brand-blue);
+  box-shadow: 0 16rpx 38rpx rgba(28, 140, 255, 0.18);
+  transform: translateY(-2rpx);
+}
+
+.option-correct {
+  border-color: var(--brand-green);
+  background: linear-gradient(180deg, #fbfff8 0%, #effce6 100%);
+}
+
+.option-wrong {
+  border-color: var(--danger);
+  background: linear-gradient(180deg, #fff9f9 0%, #ffecec 100%);
+}
+
+.option-main {
+  font-size: 32rpx;
+  line-height: 1.5;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.option-sub {
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: var(--text-secondary);
+}
+
+.submit-wrap {
+  margin-top: 16rpx;
+  padding-bottom: 24rpx;
+}
+
+.submit-wrap button {
+  width: 100%;
+}
+
+.empty-state,
+.state-card {
+  margin-top: 120rpx;
+  padding: 52rpx 34rpx 40rpx;
+  text-align: center;
+}
+
+.empty-emoji,
+.state-emoji,
+.modal-emoji {
+  font-size: 76rpx;
+}
+
+.empty-title,
+.state-title,
+.modal-title {
+  margin-top: 22rpx;
+  font-size: 40rpx;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.empty-text,
+.state-text,
+.modal-text {
+  margin-top: 18rpx;
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.empty-state button,
+.state-card button,
+.modal-card button {
+  width: 100%;
+  margin-top: 30rpx;
+}
+
+.state-page {
+  justify-content: center;
+}

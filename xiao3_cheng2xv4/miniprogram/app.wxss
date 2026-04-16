@@ -1,0 +1,118 @@
+page {
+  --bg-page: #f4fff0;
+  --bg-card: #ffffff;
+  --brand-green: #58cc02;
+  --brand-green-dark: #45a900;
+  --brand-blue: #1c8cff;
+  --brand-blue-dark: #0067d6;
+  --danger: #ff4b4b;
+  --danger-dark: #d83a3a;
+  --text-primary: #17300b;
+  --text-secondary: #628151;
+  --text-muted: #90a48a;
+  --line-soft: #dcf1d0;
+  --shadow-card: 0 20rpx 48rpx rgba(74, 128, 39, 0.12);
+  --shadow-button: 0 14rpx 24rpx rgba(88, 204, 2, 0.22);
+  background:
+    radial-gradient(circle at top left, rgba(122, 240, 74, 0.16), transparent 36%),
+    linear-gradient(180deg, #f7fff3 0%, #effbe8 100%);
+  color: var(--text-primary);
+  min-height: 100%;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+view,
+text,
+button,
+image {
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 40rpx 32rpx 48rpx;
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 32rpx;
+  box-shadow: var(--shadow-card);
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.disabled-button {
+  border: none;
+  border-radius: 999rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+  font-weight: 700;
+  line-height: 1;
+  padding: 28rpx 32rpx;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.primary-button {
+  background: linear-gradient(180deg, var(--brand-green) 0%, var(--brand-green-dark) 100%);
+  box-shadow: var(--shadow-button);
+}
+
+.secondary-button {
+  background: linear-gradient(180deg, var(--brand-blue) 0%, var(--brand-blue-dark) 100%);
+  box-shadow: 0 14rpx 24rpx rgba(28, 140, 255, 0.22);
+}
+
+.danger-button {
+  background: linear-gradient(180deg, var(--danger) 0%, var(--danger-dark) 100%);
+  box-shadow: 0 14rpx 24rpx rgba(255, 75, 75, 0.24);
+}
+
+.disabled-button {
+  background: #d6e4cf;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+button::after {
+  border: none;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 10rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+  font-weight: 700;
+}
+
+.tag-green {
+  background: rgba(88, 204, 2, 0.12);
+  color: var(--brand-green-dark);
+}
+
+.tag-blue {
+  background: rgba(28, 140, 255, 0.1);
+  color: var(--brand-blue-dark);
+}
+
+.modal-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(19, 39, 8, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32rpx;
+  z-index: 999;
+}
+
+.modal-card {
+  width: 100%;
+  padding: 48rpx 36rpx 40rpx;
+  text-align: center;
+  border-radius: 36rpx;
+  background: #ffffff;
+  box-shadow: 0 28rpx 80rpx rgba(18, 34, 10, 0.18);
+}
