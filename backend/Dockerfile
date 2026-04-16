@@ -12,4 +12,4 @@ COPY . /app/
 
 EXPOSE 80
 
-CMD python manage.py migrate && python -m gunicorn config.wsgi:application --bind 0.0.0.0:80
+CMD python -m gunicorn config.wsgi:application --bind 0.0.0.0:80
