@@ -1,12 +1,70 @@
-# 云开发 quickstart
+# TDesign 通用页面模板
 
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
+基于 TDesign 打造的通用页面模板，包含通用的登陆注册、个人中心、设置中心、信息流等等功能。
 
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
+## 模版功能预览
 
-## 参考文档
+### 首页
 
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
+<div style="display: flex">
+  <img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/home-1.png">
+  <img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/home-2.png">
+</div>
 
+### 信息发布
+
+<img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/publish-1.png">
+
+### 搜索页
+
+<img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/search-1.png">
+
+### 个人中心
+<div style="display: flex">
+  <img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/user-1.png">
+  <img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/user-2.png">
+  <img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/user-3.png">
+</div>
+
+
+### 设置中心
+
+<img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/setting-1.png">
+
+### 消息中心
+
+<img width="375" alt="image" src="https://tdesign.gtimg.com/miniprogram/template/message-1.png">
+
+
+## 开发预览
+### 目录结构（TODO: 生成目录结构树）
+
+
+### 在开发者工具中预览
+
+```bash
+# 安装项目依赖
+npm install
+
+```
+
+打开[微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，导入整个项目，构建 npm 包，就可以预览示例了。
+
+### 基础库版本
+
+最低基础库版本`^2.6.5`
+
+
+## 贡献成员
+
+<a href="https://github.com/TDesignOteam/tdesign-miniprogram-starter/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=TDesignOteam/tdesign-miniprogram-starter" />
+</a>
+
+## 反馈
+
+有任何问题，建议通过 [Github issues](https://github.com/TDesignOteam/tdesign-miniprogram-starter/issues) 反馈。
+
+## 开源协议
+
+TDesign 遵循 [MIT 协议](https://github.com/TDesignOteam/tdesign-miniprogram-starter/blob/main/LICENSE)。
