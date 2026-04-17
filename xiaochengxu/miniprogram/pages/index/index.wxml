@@ -1,0 +1,28 @@
+<view class="container home-page">
+  <view class="hero-block">
+    <view class="hero-badge tag tag-green">Duolingo 灵感 · 单词跃迁计划</view>
+    <view class="hero-title">今天想进行哪一步训练？</view>
+    <view class="hero-subtitle">
+      先导入你的专属词库，再进入日常或专业复习模式，让记忆闭环跑起来。
+    </view>
+  </view>
+
+  <view class="mode-grid">
+    <view
+      wx:for="{{featureCards}}"
+      wx:key="key"
+      class="mode-card card {{item.key === 'import' ? 'import-card' : ''}}"
+      data-key="{{item.key}}"
+      bindtap="handleCardTap"
+    >
+      <view class="mode-icon {{item.key === 'import' ? 'mode-icon-blue' : ''}}">{{item.emoji}}</view>
+      <view class="mode-badge">{{item.badge}}</view>
+      <view class="mode-title">{{item.title}}</view>
+      <view class="mode-subtitle">{{item.subtitle}}</view>
+      <view class="mode-footer">
+        <text>{{item.actionText}}</text>
+        <text class="mode-arrow">→</text>
+      </view>
+    </view>
+  </view>
+</view>

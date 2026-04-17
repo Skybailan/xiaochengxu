@@ -1,0 +1,93 @@
+<view class="container import-page">
+  <view class="import-hero card">
+    <view class="import-hero-badge tag tag-blue">批量导入 · 文本直贴入库</view>
+    <view class="import-hero-title">把你的单词表一键变成复习题库</view>
+    <view class="import-hero-text">
+      支持选择日常库或专业库。列之间允许使用 Tab，或者使用两个及以上空格分隔。缺失值可写 null。
+    </view>
+  </view>
+
+  <view class="card import-form-card">
+    <view class="section-title">用户归属</view>
+    <input
+      class="form-input"
+      placeholder="请输入 user_openid"
+      value="{{openid}}"
+      bindinput="handleOpenIdInput"
+    />
+
+    <view class="section-title section-gap">选择词库</view>
+    <view class="library-switch">
+      <view
+        class="library-pill {{libraryType === 'daily' ? 'library-pill-active' : ''}}"
+        data-library-type="daily"
+        bindtap="switchLibrary"
+      >
+        日常库
+      </view>
+      <view
+        class="library-pill {{libraryType === 'pro' ? 'library-pill-active' : ''}}"
+        data-library-type="pro"
+        bindtap="switchLibrary"
+      >
+        专业库
+      </view>
+    </view>
+
+    <view class="format-card">
+      <view class="format-title-row">
+        <view class="format-title">{{libraryMeta.title}} 导入格式</view>
+        <view class="tag {{libraryType === 'daily' ? 'tag-green' : 'tag-blue'}}">{{libraryMeta.badge}}</view>
+      </view>
+      <view class="format-text">{{libraryMeta.helper}}</view>
+    </view>
+
+    <view class="section-title section-gap">粘贴文本</view>
+    <textarea
+      class="raw-textarea"
+      placeholder="{{libraryMeta.placeholder}}"
+      value="{{rawText}}"
+      bindinput="handleTextInput"
+      maxlength="-1"
+      auto-height
+    />
+
+    <view class="toolbar-row">
+      <button class="toolbar-btn toolbar-secondary" bindtap="fillDemoText">填入示例</button>
+      <button class="toolbar-btn toolbar-ghost" bindtap="clearText">清空内容</button>
+    </view>
+
+    <button class="secondary-button import-submit" bindtap="submitImport" loading="{{importing}}">
+      {{importing ? '导入中...' : '开始导入'}}
+    </button>
+  </view>
+
+  <view class="card result-card" wx:if="{{result}}">
+    <view class="section-title">导入结果</view>
+    <view class="result-grid">
+      <view class="result-item">
+        <view class="result-label">总行数</view>
+        <view class="result-value">{{result.summary.total_lines}}</view>
+      </view>
+      <view class="result-item">
+        <view class="result-label">新增</view>
+        <view class="result-value success-text">{{result.summary.created_count}}</view>
+      </view>
+      <view class="result-item">
+        <view class="result-label">更新</view>
+        <view class="result-value info-text">{{result.summary.updated_count}}</view>
+      </view>
+      <view class="result-item">
+        <view class="result-label">跳过</view>
+        <view class="result-value">{{result.summary.skipped_count}}</view>
+      </view>
+    </view>
+
+    <view class="error-panel" wx:if="{{result.errors.length}}">
+      <view class="error-title">错误明细（最多展示 20 条）</view>
+      <view wx:for="{{result.errors}}" wx:key="line" class="error-row">
+        第 {{item.line}} 行：{{item.reason}}
+      </view>
+    </view>
+  </view>
+</view>

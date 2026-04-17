@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/import/index",
+    "pages/review/index",
+    "pages/example/index"
+  ],
+  "window": {
+    "backgroundColor": "#f4fff0",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f4fff0",
+    "navigationBarTitleText": "词跃记忆",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents"
+}
